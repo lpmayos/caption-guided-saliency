@@ -15,7 +15,7 @@ $ git clone --recursive git@github.com:VisionLearningGroup/caption-guided-salien
 The model is implemented using TensorFlow framework, Python 2.7. For TensorFlow installation please refer to the official [Installing TensorFlow](https://www.tensorflow.org/install/) guide or simply:
 
 ```bash
-$ pip install --upgrade https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.0.1-cp27-none-linux_x86_64.whl
+$ pip install --upgrade https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.1.0-cp27-none-linux_x86_64.whl
 ```
 *Warning!* The standard version of TensorFlow gives the warnings like:
 ```
@@ -32,7 +32,12 @@ The code also uses `ffmpeg` for data preprocessing.
 
 **Obtain the dataset you need:**
 
-  * [MSR-VTT](http://ms-multimedia-challenge.com/dataset): train_val_videos.zip, train_val_annotation.zip, test_videos.zip, test_annotation.zip
+  * [MSR-VTT](http://ms-multimedia-challenge.com/dataset): 
+  [train_val_videos.zip](http://202.38.69.241/static/resource/train_val_videos.zip),
+  [train_val_annotation.zip](http://202.38.69.241/static/resource/train_val_annotation.zip), 
+  [test_videos.zip](http://202.38.69.241/static/resource/test_videos.zip), 
+  [test_videodatainfo.json](http://ms-multimedia-challenge.com/static/resource/test_videodatainfo.json)
+  
   * [Flickr30k](http://shannon.cs.illinois.edu/DenotationGraph/): flickr30k.tar.gz, flickr30k-images.tar
 
 and unpack files into their respective directories under ```./DATA/```.
@@ -64,7 +69,7 @@ This step takes ~30mins for Flickr30k and ~2h for MSR-VTT.
 
 **Run training**
 ```bash
-$ python run_s2vt.py --dataset {MSR-VTT|Flickr30k}
+$ python run_s2vt.py --dataset {MSR-VTT|Flickr30k} --train
 ```
 We do not finetune CNN part of the model, thus, training on GPU takes only several hours. Training/validation/test splits for Flickr30k are taken from [NeuralTalk](https://github.com/karpathy/neuraltalk). After the training you can run evaluation of the model:
 
