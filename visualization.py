@@ -281,7 +281,8 @@ def create_video_example(video_id, cfg, checkpoint, input_sentence = "a man is d
         get_superimposed_frame(video_id, video_frames[i], saliency_maps[i], input_sentence.split(" "))
     
     with open(os.devnull, "w") as ffmpeg_log:
-        frames_to_video_command = [ "ffmpeg",
+         # lpmayos note: ffmpeg not available on cluster, changed by avconv
+        frames_to_video_command = [ "avconv",
                 '-y', # (optional) overwrite output file if it exists
                 '-framerate', '8',
                 '-start_number', '1',
