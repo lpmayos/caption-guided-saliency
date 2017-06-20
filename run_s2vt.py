@@ -216,13 +216,9 @@ def train():
         tf_loss, tf_video, tf_caption, tf_caption_mask, _ = model_train.build_model("training")
 
     with tf.variable_scope(tf.get_variable_scope(), reuse=False):
-<<<<<<< HEAD
-        train_op = tf.train.GradientDescentOptimizer(cfg.learning_rate).minimize(tf_loss)
-=======
         train_op = tf.train.AdamOptimizer(cfg.learning_rate).minimize(tf_loss)
     
     saver = tf.train.Saver(max_to_keep=cfg.max_to_keep)
->>>>>>> 9411dbbfecc3ad90c0829a9b7d311061cab41b17
     sess.run(tf.global_variables_initializer())
     
     model_counter = 0

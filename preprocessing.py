@@ -93,6 +93,7 @@ def extract_frames(video, dst):
             print " cleanup: " + dst + "/"
             shutil.rmtree(dst)
         os.makedirs(dst)
+        # lpmayos note: ffmpeg not available on cluster, changed by avconv
         video_to_frames_command = [ "avconv",
         '-y', # (optional) overwrite output file if it exists
         '-i',  video, # input file
