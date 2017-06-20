@@ -215,7 +215,7 @@ def train():
 
     saver = tf.train.Saver(max_to_keep=cfg.max_to_keep)
     with tf.variable_scope(tf.get_variable_scope(), reuse=False):
-        train_op = tf.train.AdamOptimizer(cfg.learning_rate).minimize(tf_loss)
+        train_op = tf.train.GradientDescentOptimizer(cfg.learning_rate).minimize(tf_loss)
     sess.run(tf.global_variables_initializer())
     
     model_counter = 0

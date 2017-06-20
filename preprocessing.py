@@ -20,8 +20,9 @@ from cfg import msr_vtt_cfg, flickr_cfg
 
 
 FLAGS = tf.app.flags.FLAGS
-tf.app.flags.DEFINE_string('model_dir', "./DATA/feature_extractors/InceptionV3/", """Path to classify_image_graph_def.pb""")
-MODEL_URL = 'http://download.tensorflow.org/models/image/imagenet/inception-2015-12-05.tgz'
+tf.app.flags.DEFINE_string('model_dir', "/homedtic/lperez/code/caption-guided-saliency/DATA/feature_extractors/InceptionV3/", """Path to classify_image_graph_def.pb""")
+#MODEL_URL = 'http://download.tensorflow.org/models/image/imagenet/inception-2015-12-05.tgz'
+MODEL_URL = 'http://download.tensorflow.org/models/inception_v3_2016_08_28.tar.gz'
 
 def maybe_download_and_extract():
     # Download and extract model tar file
@@ -92,7 +93,7 @@ def extract_frames(video, dst):
             print " cleanup: " + dst + "/"
             shutil.rmtree(dst)
         os.makedirs(dst)
-        video_to_frames_command = [ "ffmpeg",
+        video_to_frames_command = [ "avconv",
         '-y', # (optional) overwrite output file if it exists
         '-i',  video, # input file
         '-vf', "scale=400:300", # input file
