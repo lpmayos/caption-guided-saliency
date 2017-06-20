@@ -13,6 +13,7 @@ import argparse
 import pandas as pd
 import pickle as pkl
 import matplotlib.pyplot as plt
+plt.switch_backend('Agg')
 import subprocess
 from scipy.ndimage.filters import convolve1d, gaussian_filter
 
