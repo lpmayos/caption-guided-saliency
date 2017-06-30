@@ -6,6 +6,8 @@ class COCOScorer is taken from https://github.com/yaoli/arctic-capgen-vid
 '''
 
 import os, sys
+import matplotlib.pyplot as plt
+
 coco_caption_dir = "./coco-caption/"
 sys.path.insert(0, coco_caption_dir)
 
@@ -80,6 +82,19 @@ class COCOScorer(object):
         for scorer, method in scorers:
             print 'computing %s score...'%(scorer.method())
             score, scores = scorer.compute_score(gts, res)
+
+            # ...................................................................................
+            # boxplot with outliers
+            if scorer.method() == 'Bleu':
+                for i, aux in enumerate(scores):
+                    # aux is an array containing 2990 scores, one per test video
+                    plt.figure()
+                    plt.boxplot(aux, 0, 'gD')
+                    plt.title('Scores for method ' + scorer.method() + '(' + str(i) + ')')
+                    # plt.show()
+                    plt.savefig('scores_' + scorer.method() + '_' + str(i) + '.png')
+            # ...................................................................................
+
             if type(method) == list:
                 for sc, scs, m in zip(score, scores, method):
                     self.setEval(sc, m)

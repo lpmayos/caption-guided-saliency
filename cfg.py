@@ -44,11 +44,12 @@ class msr_vtt_cfg():
     def __init__(self):
         self.id = "MSR-VTT"
         ############### Global Parameters ##############
-        data_path = "/homedtic/lperez/code/caption-guided-saliency/DATA/MSR-VTT/" 
+        data_path = "./DATA/MSR-VTT/" 
         self.descriptor_suffix = "_incp_v3"
         
         ############### Split parameters ###############
-        self.trainval_annotations = data_path + "train_val_videodatainfo.json"
+        # self.trainval_annotations = data_path + "train_val_videodatainfo.json"
+        self.trainval_annotations = data_path + "train_val_videodatainfo_experiment5.json"
         self.test_annotations = data_path + "test_videodatainfo.json"
         self.path_to_trainval_descriptors = data_path + "trainval_descriptors/"
         self.path_to_test_descriptors = data_path + "test_descriptors/"
@@ -56,7 +57,8 @@ class msr_vtt_cfg():
         self.path_to_test_video = data_path + "TestVideo/"
         
         
-        self.experiment = "/homedtic/lperez/code/caption-guided-saliency/experiments/msr-vtt/"                      # files will be overwritten in the case of multiple runs
+        # self.experiment = "/homedtic/lperez/code/caption-guided-saliency/experiments/msr-vtt/"                      # files will be overwritten in the case of multiple runs
+        self.experiment = "./experiments/msr-vtt-experiment5/"
         self.vocab_path = self.experiment                     
         self.model_path = self.experiment                     
         self.results_path = self.experiment
