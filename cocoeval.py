@@ -93,8 +93,6 @@ class COCOScorer(object):
                         plt.boxplot(aux, 0, 'gD')
                         plt.title('Scores for method ' + scorer.method() + '(' + str(i) + ')')
                         # plt.show()
-                        axes = plt.gca()
-                        axes.set_ylim([-0.1, 1.1])
                         plt.savefig('scores_' + scorer.method() + '_' + str(i) + '.png')
             except:
                 print '[WARNING] Score boxplots not created due to _tkinter.TclError: no display name and no $DISPLAY environment variable'
