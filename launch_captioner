@@ -16,8 +16,8 @@ cd $HOME/code/caption-guided-saliency
 
 # python run_s2vt.py --dataset MSR-VTT --train
 
-# python run_s2vt.py --dataset MSR-VTT --test --checkpoint 99
+python run_s2vt.py --dataset MSR-VTT --test --checkpoint 99
 # python run_s2vt.py --dataset MSR-VTT --test --checkpoint 70
 
-python visualization.py --dataset MSR-VTT --media_id video9461 --checkpoint 99 --sentence "A man is driving a car"
+# python visualization.py --dataset MSR-VTT --media_id video9461 --checkpoint 99 --sentence "A man is driving a car"
 
