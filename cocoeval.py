@@ -83,20 +83,20 @@ class COCOScorer(object):
             print 'computing %s score...'%(scorer.method())
             score, scores = scorer.compute_score(gts, res)
 
-            # ...................................................................................
-            # boxplot with outliers
-            try:
-                if scorer.method() == 'Bleu':
-                    for i, aux in enumerate(scores):
-                        # aux is an array containing 2990 scores, one per test video
-                        plt.figure()
-                        plt.boxplot(aux, 0, 'gD')
-                        plt.title('Scores for method ' + scorer.method() + '(' + str(i) + ')')
-                        # plt.show()
-                        plt.savefig('scores_' + scorer.method() + '_' + str(i) + '.png')
-            except:
-                print '[WARNING] Score boxplots not created due to _tkinter.TclError: no display name and no $DISPLAY environment variable'
-            # ...................................................................................
+            # # ...................................................................................
+            # # boxplot with outliers
+            # try:
+            #     if scorer.method() == 'Bleu':
+            #         for i, aux in enumerate(scores):
+            #             # aux is an array containing 2990 scores, one per test video
+            #             plt.figure()
+            #             plt.boxplot(aux, 0, 'gD')
+            #             plt.title('Scores for method ' + scorer.method() + '(' + str(i) + ')')
+            #             # plt.show()
+            #             plt.savefig('scores_' + scorer.method() + '_' + str(i) + '.png')
+            # except:
+            #     print '[WARNING] Score boxplots not created due to _tkinter.TclError: no display name and no $DISPLAY environment variable'
+            # # ...................................................................................
 
             if type(method) == list:
                 for sc, scs, m in zip(score, scores, method):
