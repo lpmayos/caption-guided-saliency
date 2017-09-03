@@ -340,7 +340,6 @@ def test(saved_model=''):
         _, _, test_data = get_msr_vtt_data(cfg)
     
     splits = []
-    
     splits.append((test_data['video_path'].unique(), test_data))
     results = []
     for split, gt_dataframe in splits:
@@ -366,8 +365,11 @@ def test(saved_model=''):
                 video_id = current_batch[i].split("/")[-1].split("_")[0] #+ ".jpg"
                 samples[video_id] = [{u'image_id': video_id, u'caption': generated_sentence}]
                 
+        # gts['video8831'] = [{u'image_id': u'video8831', u'cap_id': 0, u'caption': u'there are some people walking in a shop'}, {u'image_id': u'video8831', u'cap_id': 1, u'caption': u'a group of people are walking through a mall'}, {u'image_id': u'video8831', u'cap_id': 2, u'caption': u'the hustle and bustle of life leads to future'}, {u'image_id': u'video8831', u'cap_id': 3, u'caption': u'the shopping mall is very crowded with hundreds of potential shoppers'}, {u'image_id': u'video8831', u'cap_id': 4, u'caption': u'a speaker discusses the drawbacks of society s obsession with technology'}, {u'image_id': u'video8831', u'cap_id': 5, u'caption': u'people in a shopping mall going from store to store and one man is interviewed'}, {u'image_id': u'video8831', u'cap_id': 6, u'caption': u'more peoples are going in  a shop'}, {u'image_id': u'video8831', u'cap_id': 7, u'caption': u'the people are wandering in the supermarket to get something'}, {u'image_id': u'video8831', u'cap_id': 8, u'caption': u'a sped up view of several people moving around a mall filled with stores'}, {u'image_id': u'video8831', u'cap_id': 9, u'caption': u'people walking inside a mall and a news reporter asking questions'}, {u'image_id': u'video8831', u'cap_id': 10, u'caption': u'a man talking of something about the new year shopping'}, {u'image_id': u'video8831', u'cap_id': 11, u'caption': u'a shopping mall shows a shop of multimedia devices'}, {u'image_id': u'video8831', u'cap_id': 12, u'caption': u'many people walks through the mall as a man promotes computers for cheap'}, {u'image_id': u'video8831', u'cap_id': 13, u'caption': u'people walk around an electronics store in the mall while a man talks'}, {u'image_id': u'video8831', u'cap_id': 14, u'caption': u'a guy speaking about throwing away laptops and computer cosmetics'}, {u'image_id': u'video8831', u'cap_id': 15, u'caption': u'the people are walking and buying many smartphones'}, {u'image_id': u'video8831', u'cap_id': 16, u'caption': u'many persons walking inside shoping mall hall and computer shop selling  displaying on screen'}, {u'image_id': u'video8831', u'cap_id': 17, u'caption': u'this video is about showing the electronic shop'}, {u'image_id': u'video8831', u'cap_id': 18, u'caption': u'bunch of people walking in the mall'}, {u'image_id': u'video8831', u'cap_id': 19, u'caption': u'a bunch of people are walking around in a mall'}]
+        # samples['video8831'] = [{u'image_id': u'video8831', u'caption': u'a man is walking through a factory'}]
         with suppress_stdout_stderr():
             valid_score = scorer.score(gts, samples, samples.keys())
+
         results.append(valid_score)
         print valid_score
     
