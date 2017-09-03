@@ -1,5 +1,6 @@
 *.pyc
 env/
+experiments/*/model*
 experiments/msr-vtt-experiment1/model-99.data-00000-of-00001
 
 experiments/msr-vtt-experiment3/model-99.data-00000-of-00001

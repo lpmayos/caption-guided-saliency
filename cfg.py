@@ -49,7 +49,15 @@ class msr_vtt_cfg():
         
         ############### Split parameters ###############
         # self.trainval_annotations = data_path + "train_val_videodatainfo.json"
-        self.trainval_annotations = data_path + "train_val_videodatainfo_experiment5.json"
+        # self.trainval_annotations = data_path + "train_val_videodatainfo_e1_th2_0.785.json"
+        # self.trainval_annotations = data_path + "train_val_videodatainfo_e4_th1_0.09_th2_0.506.json"
+        # self.trainval_annotations = data_path + "train_val_videodatainfo_e5_th1_0.135_th2_0.092.json"
+        # self.trainval_annotations = data_path + "train_val_videodatainfo_el_th1_0.11_th2_0.435.json"
+        # self.trainval_annotations = data_path + "train_val_videodatainfo_sub_pred_combinations.json"
+        # self.trainval_annotations = data_path + "train_val_videodatainfo_sub_pred_combinations_with_subject_matching.json"
+        # self.trainval_annotations = data_path + "train_val_videodatainfo_el_th1_0.11_th2_0.435_subj_pred_combi_senses.json"
+	self.trainval_annotations = data_path + "train_val_videodatainfo_el_th1_0.11_th2_0.435_pmi_subject_replacement.json"
+	# self.trainval_annotations = data_path + "train_val_videodatainfo_el_th1_0.11_th2_0.435_pmi_subject_replacement_subj_pred_combi.json"
         self.test_annotations = data_path + "test_videodatainfo.json"
         self.path_to_trainval_descriptors = data_path + "trainval_descriptors/"
         self.path_to_test_descriptors = data_path + "test_descriptors/"
@@ -57,8 +65,9 @@ class msr_vtt_cfg():
         self.path_to_test_video = data_path + "TestVideo/"
         
         
-        # self.experiment = "/homedtic/lperez/code/caption-guided-saliency/experiments/msr-vtt/"                      # files will be overwritten in the case of multiple runs
-        self.experiment = "./experiments/msr-vtt-experiment5/"
+        # self.experiment = "./experiments/msr-vtt/"                      # files will be overwritten in the case of multiple runs
+        # self.experiment = "./experiments/msr-vtt-experiment4_symmetrical/"
+	self.experiment = "./experiments/msr-vtt-experiment_pmi_subject_replacement_bis/"
         self.vocab_path = self.experiment                     
         self.model_path = self.experiment                     
         self.results_path = self.experiment
