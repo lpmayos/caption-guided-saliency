@@ -1,10 +1,4 @@
 *.pyc
 env/
-experiments/*/model*
-experiments/msr-vtt-experiment1/model-99.data-00000-of-00001
-
-experiments/msr-vtt-experiment3/model-99.data-00000-of-00001
-
-experiments/msr-vtt-experiment4/model-99.data-00000-of-00001
-
-experiments/msr-vtt-experiment5/model-99.data-00000-of-00001
+experiments_results/*/model*
+!experiments_results/*/model-99.json
