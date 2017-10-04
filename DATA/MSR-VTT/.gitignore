@@ -2,3 +2,5 @@
 *
 # Except this file
 !.gitignore
+!./new_training_sets/*
+
